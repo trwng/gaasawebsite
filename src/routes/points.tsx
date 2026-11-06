@@ -1,0 +1,335 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+
+export const Route = createFileRoute("/points")({
+  head: () => ({
+    meta: [
+      { title: "Points — Gwinnett AASA" },
+      {
+        name: "description",
+        content:
+          "How GAASA's point system works, and where every Gwinnett County school and member stands this year.",
+      },
+      { property: "og:title", content: "Points — Gwinnett AASA" },
+      {
+        property: "og:description",
+        content:
+          "How GAASA's point system works, and where every Gwinnett County school and member stands this year.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Points,
+});
+
+// ---- Point system rules. Edit values here as the year goes on. ----
+const EVENT_POINTS = [
+  { label: "Summer Picnic", points: 25 },
+  { label: "Field Day", points: 25 },
+  { label: "Game Tournaments", points: 15 },
+  { label: "Foodie Friday", points: 10 },
+  { label: "Advocacy Day", points: 30 },
+  { label: "GAASA Banquet", points: 35 },
+  { label: "Volunteering", points: 10 },
+];
+
+const BONUS_POINTS = [
+  { label: "Repost a GAASA Instagram post", points: 2 },
+  { label: "Win a Game Tournament", points: 10 },
+];
+
+// ---- Standings. A school's total is the sum of its members' points. ----
+type Member = { name: string; points: number };
+type School = { school: string; members: Member[] };
+
+const STANDINGS: School[] = [
+  {
+    school: "School A",
+    members: [
+      { name: "Member Name", points: 45 },
+      { name: "Member Name", points: 30 },
+      { name: "Member Name", points: 18 },
+    ],
+  },
+  {
+    school: "School B",
+    members: [
+      { name: "Member Name", points: 52 },
+      { name: "Member Name", points: 27 },
+    ],
+  },
+  {
+    school: "School C",
+    members: [
+      { name: "Member Name", points: 38 },
+      { name: "Member Name", points: 22 },
+      { name: "Member Name", points: 15 },
+      { name: "Member Name", points: 10 },
+    ],
+  },
+  { school: "School D", members: [{ name: "Member Name", points: 60 }] },
+  {
+    school: "School E",
+    members: [
+      { name: "Member Name", points: 35 },
+      { name: "Member Name", points: 28 },
+    ],
+  },
+  {
+    school: "School F",
+    members: [
+      { name: "Member Name", points: 40 },
+      { name: "Member Name", points: 25 },
+      { name: "Member Name", points: 20 },
+    ],
+  },
+  { school: "School G", members: [{ name: "Member Name", points: 22 }] },
+  {
+    school: "School H",
+    members: [
+      { name: "Member Name", points: 33 },
+      { name: "Member Name", points: 12 },
+    ],
+  },
+  {
+    school: "School I",
+    members: [
+      { name: "Member Name", points: 28 },
+      { name: "Member Name", points: 19 },
+      { name: "Member Name", points: 14 },
+    ],
+  },
+  { school: "School J", members: [{ name: "Member Name", points: 47 }] },
+  {
+    school: "School K",
+    members: [
+      { name: "Member Name", points: 26 },
+      { name: "Member Name", points: 21 },
+    ],
+  },
+  {
+    school: "School L",
+    members: [
+      { name: "Member Name", points: 30 },
+      { name: "Member Name", points: 17 },
+      { name: "Member Name", points: 9 },
+    ],
+  },
+  { school: "School M", members: [{ name: "Member Name", points: 15 }] },
+  {
+    school: "School N",
+    members: [
+      { name: "Member Name", points: 24 },
+      { name: "Member Name", points: 20 },
+    ],
+  },
+  {
+    school: "School O",
+    members: [
+      { name: "Member Name", points: 20 },
+      { name: "Member Name", points: 16 },
+      { name: "Member Name", points: 11 },
+    ],
+  },
+  { school: "School P", members: [{ name: "Member Name", points: 8 }] },
+  {
+    school: "School Q",
+    members: [
+      { name: "Member Name", points: 18 },
+      { name: "Member Name", points: 13 },
+    ],
+  },
+  {
+    school: "School R",
+    members: [
+      { name: "Member Name", points: 12 },
+      { name: "Member Name", points: 10 },
+      { name: "Member Name", points: 7 },
+    ],
+  },
+  { school: "School S", members: [{ name: "Member Name", points: 5 }] },
+];
+
+const total = (s: School) => s.members.reduce((sum, m) => sum + m.points, 0);
+
+function RuleRow({ label, points }: { label: string; points: number }) {
+  return (
+    <li className="flex items-baseline gap-3 py-1.5">
+      <span className="text-sm text-foreground/80">{label}</span>
+      <span
+        aria-hidden
+        className="min-w-4 flex-1 border-b border-dotted border-border"
+      />
+      <span className="font-display text-sm font-semibold tabular-nums text-primary">
+        +{points}
+      </span>
+    </li>
+  );
+}
+
+function Points() {
+  const [openSchool, setOpenSchool] = useState<string | null>(null);
+  const sorted = [...STANDINGS].sort((a, b) => total(b) - total(a));
+  const max = Math.max(...sorted.map(total), 1);
+
+  return (
+    <div>
+      <section className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-24">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+          Points
+        </p>
+        <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
+          The point system
+        </h1>
+        <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
+          By attending events, taking part in activities, and backing GAASA on
+          social media, you earn points for yourself and for your school. Every
+          point counts twice — toward your own total and toward your
+          school&apos;s standing.
+        </p>
+      </section>
+
+      {/* How points are earned + what they're worth */}
+      <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6">
+        <div className="border border-border bg-card">
+          <div className="border-b border-border px-5 py-4 sm:px-7">
+            <h2 className="font-display text-lg font-semibold tracking-tight">
+              Ways to earn points
+            </h2>
+          </div>
+          <div className="grid gap-px bg-border sm:grid-cols-3">
+            <div className="bg-card px-5 py-6 sm:px-7">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Event attendance
+              </p>
+              <ul className="mt-4 divide-y divide-border/70">
+                {EVENT_POINTS.map((e) => (
+                  <RuleRow key={e.label} label={e.label} points={e.points} />
+                ))}
+              </ul>
+            </div>
+            <div className="bg-card px-5 py-6 sm:px-7">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Bonus points
+              </p>
+              <ul className="mt-4 divide-y divide-border/70">
+                {BONUS_POINTS.map((e) => (
+                  <RuleRow key={e.label} label={e.label} points={e.points} />
+                ))}
+              </ul>
+              <p className="mt-6 border-t border-border pt-4 text-sm leading-relaxed text-muted-foreground">
+                Bonus points stack on top of the points you already earn for
+                showing up.
+              </p>
+            </div>
+            <div className="bg-card px-5 py-6 sm:px-7">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                What you can win
+              </p>
+              <div className="mt-4 space-y-5">
+                <div>
+                  <p className="font-display text-sm font-semibold">
+                    Individual awards
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    Members with the highest individual totals are eligible to
+                    win prizes at our annual banquet.
+                  </p>
+                </div>
+                <div className="border-t border-border pt-5">
+                  <p className="font-display text-sm font-semibold">
+                    School awards
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    Schools with the highest overall totals receive monetary
+                    awards to support their GAASA chapter funds.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Standings */}
+      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <h2 className="font-display text-2xl font-bold tracking-tight">
+          School standings
+        </h2>
+        <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+          Click a school to see its members and each member&apos;s individual
+          total.
+        </p>
+
+        <div className="mt-8 divide-y divide-border border-y border-border">
+          {sorted.map((entry, i) => {
+            const isOpen = openSchool === entry.school;
+            const schoolTotal = total(entry);
+            const members = [...entry.members].sort(
+              (a, b) => b.points - a.points,
+            );
+            return (
+              <div key={entry.school}>
+                <button
+                  type="button"
+                  onClick={() => setOpenSchool(isOpen ? null : entry.school)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center gap-5 py-4 text-left transition-colors hover:bg-secondary/60"
+                >
+                  <span className="w-8 shrink-0 font-display text-sm font-bold text-muted-foreground">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate font-semibold">{entry.school}</p>
+                    <div className="mt-2.5 h-1 overflow-hidden rounded-full bg-muted">
+                      <div
+                        className="h-full rounded-full bg-primary transition-all"
+                        style={{ width: `${(schoolTotal / max) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                  <span className="font-display text-lg font-bold tabular-nums text-primary">
+                    {schoolTotal}
+                  </span>
+                  <span
+                    className={`shrink-0 text-muted-foreground transition-transform ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                    aria-hidden
+                  >
+                    ▾
+                  </span>
+                </button>
+                {isOpen && (
+                  <ul className="ml-13 mr-13 mb-4 space-y-px border-l-2 border-primary/20 pl-5">
+                    {members.map((member, idx) => (
+                      <li
+                        key={`${member.name}-${idx}`}
+                        className="flex items-baseline gap-3 py-1.5"
+                      >
+                        <span className="text-sm text-foreground/80">
+                          {member.name}
+                        </span>
+                        <span
+                          aria-hidden
+                          className="min-w-4 flex-1 border-b border-dotted border-border"
+                        />
+                        <span className="font-display text-sm font-semibold tabular-nums text-primary">
+                          {member.points}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <p className="mt-6 text-sm text-muted-foreground">
+          Standings update after every event. Check back after the next one!
+        </p>
+      </section>
+    </div>
+  );
+}
