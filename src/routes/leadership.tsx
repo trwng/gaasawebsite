@@ -28,10 +28,8 @@ export const Route = createFileRoute("/leadership")({
   component: Leadership,
 });
 
-// The executive board. `school` and `photo` are optional.
-// To add a headshot: put the image in src/assets/, import it at the top of this
-// file, and add `photo: importedImage` to that person's line.
-const BOARD: { name: string; role: string; school?: string; photo?: string }[] = [
+// The executive board. `school` is optional.
+const BOARD: { name: string; role: string; school?: string }[] = [
   { name: "Tara Wang", role: "President", school: "GSMST" },
   { name: "Anya Chung", role: "Executive Director", school: "Norcross" },
   { name: "Suhan Osman", role: "External VP", school: "Central Gwinnett" },
@@ -130,27 +128,21 @@ function Leadership() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="divide-y divide-border border-y border-border">
           {BOARD.map((member, i) => (
-            <div key={`${member.role}-${i}`}>
-              {member.photo ? (
-                <img
-                  src={member.photo}
-                  alt={`${member.name}, ${member.role}`}
-                  className="aspect-[4/5] w-full rounded-lg object-cover"
-                />
-              ) : (
-                <div className="photo-slot aspect-[4/5]">Headshot</div>
-              )}
-              <h3 className="mt-4 font-display text-base font-bold">
+            <div
+              key={`${member.role}-${i}`}
+              className="grid gap-1 py-5 sm:grid-cols-12 sm:items-baseline sm:gap-4"
+            >
+              <h3 className="font-display text-lg font-bold sm:col-span-5">
                 {member.name}
               </h3>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
-              {member.school && (
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {member.school}
-                </p>
-              )}
+              <p className="text-sm text-foreground sm:col-span-4">
+                {member.role}
+              </p>
+              <p className="text-sm text-muted-foreground sm:col-span-3">
+                {member.school}
+              </p>
             </div>
           ))}
         </div>
