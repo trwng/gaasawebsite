@@ -18,8 +18,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
-  { to: "/leadership", label: "Leadership" },
-  { to: "/points", label: "Points" },
+  { to: "/leadership", label: "Board" },
+  { to: "/contact", label: "Contact Us" },
 ] as const;
 
 function SiteNav() {
