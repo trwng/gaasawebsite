@@ -5,7 +5,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ANNOUNCEMENTS } from "@/lib/announcements";
 import { DISCORD_URL, EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/links";
 import { PHOTOS, type Photo } from "@/lib/photos";
 
@@ -139,46 +138,15 @@ function Index() {
         </div>
       </section>
 
-      {/* Announcements. Edit the list in src/lib/announcements.ts */}
-      <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6 sm:pt-20">
-        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
-          What&apos;s new
-        </h2>
-        <div className="mt-8 divide-y divide-border border-y border-border">
-          {ANNOUNCEMENTS.length === 0 ? (
-            <p className="py-5 text-sm text-muted-foreground">
-              Nothing new right now. Follow us on Instagram for the latest.
-            </p>
-          ) : (
-            ANNOUNCEMENTS.map((item) => (
-              <div
-                key={`${item.date}-${item.title}`}
-                className="grid gap-2 py-5 sm:grid-cols-12 sm:items-baseline"
-              >
-                <p className="text-sm text-muted-foreground sm:col-span-2">
-                  {item.date}
-                </p>
-                <h3 className="font-display text-lg font-bold sm:col-span-4">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted-foreground sm:col-span-6">
-                  {item.body}
-                </p>
-              </div>
-            ))
-          )}
-        </div>
-      </section>
-
       {/* Mission — offset two-column */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight">
-              What GAASA is
+              Our mission
             </h2>
           </div>
-          <div className="md:col-span-5">
+          <div className="md:col-span-7">
             <p className="leading-relaxed text-muted-foreground">
               GAASA brings together the Asian American Student Associations
               (AASAs) at Gwinnett County high schools. Each school's AASA runs
@@ -191,20 +159,6 @@ function Index() {
               you show up, you're one of us.
             </p>
           </div>
-          <div className="md:col-span-3">
-            <dl className="space-y-6 border-l-2 border-primary/20 pl-6">
-              {[
-                ["20+", "schools"],
-                ["100–200", "students at every event"],
-                ["$8,000", "raised at Banquet 2024"],
-              ].map(([num, label]) => (
-                <div key={label}>
-                  <dt className="font-display text-2xl font-bold">{num}</dt>
-                  <dd className="text-sm text-muted-foreground">{label}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
         </div>
       </section>
 
@@ -212,7 +166,7 @@ function Index() {
       <section className="border-y border-border bg-secondary/60">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
-            At least one event a month
+            Our events
           </h2>
           <Accordion
             type="multiple"
