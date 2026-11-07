@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PHOTOS } from "@/lib/photos";
 
 export const Route = createFileRoute("/about")({
@@ -145,24 +145,6 @@ function About() {
         </div>
       </section>
 
-      {/* Points */}
-      <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-          <h2 className="font-display text-3xl font-bold tracking-tight">
-            School points
-          </h2>
-          <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
-            Students earn points for their school by coming to events. See how
-            points work and where your school ranks.
-          </p>
-          <Link
-            to="/points"
-            className="mt-6 inline-block rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Check the standings
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }
