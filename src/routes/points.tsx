@@ -71,7 +71,7 @@ const STANDINGS: School[] = [
   {
     school: "Central Gwinnett",
     members: [
-      { name: "Suhan O.", points: 25 },
+      { name: "Sui O.", points: 25 },
       { name: "Ben P.", points: 25 },
       { name: "Abby K.", points: 10 },
     ],
