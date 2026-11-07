@@ -32,14 +32,14 @@ export const Route = createFileRoute("/leadership")({
 const BOARD: { name: string; role: string; school?: string }[] = [
   { name: "Tara Wang", role: "President", school: "GSMST" },
   { name: "Anya Chung", role: "Executive Director", school: "Norcross" },
-  { name: "Suhan Osman", role: "External VP", school: "Central Gwinnett" },
+  { name: "Sui Osman", role: "External VP", school: "Central Gwinnett" },
   { name: "Nhi Vuong", role: "Internal VP", school: "Grayson" },
-  { name: "Andy Lee", role: "Secretary" },
-  { name: "Geonhee Shin", role: "Treasurer" },
+  { name: "Andy Lee", role: "Secretary", school: "Peachtree Ridge" },
+  { name: "Geonhee Shin", role: "Treasurer", school: "GSMST" },
   { name: "Hannah Kim", role: "Historian", school: "GSMST" },
-  { name: "Nancy Chen", role: "Webmaster" },
+  { name: "Nancy Chen", role: "Webmaster", school: "GSMST" },
   { name: "Edison Her", role: "Member at Large", school: "Duluth" },
-  { name: "Jinho Byun", role: "Member at Large" },
+  { name: "Jinho Byun", role: "Member at Large", school: "Buford" },
   { name: "Joyce Do", role: "Technology Director", school: "Collins Hill" },
 ];
 
