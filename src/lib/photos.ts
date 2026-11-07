@@ -14,6 +14,12 @@ import picnicGroup from "@/assets/photos/picnic-group.jpg";
 import picnicFoodTent from "@/assets/photos/picnic-food-tent.jpg";
 import picnicCrowd from "@/assets/photos/picnic-crowd.jpg";
 import picnicWatermelon from "@/assets/photos/picnic-watermelon.jpg";
+import foodieBeadSupplies from "@/assets/photos/foodie-bead-supplies.jpg";
+import foodieBeadingHands from "@/assets/photos/foodie-beading-hands.jpg";
+import foodieBeadsLunch from "@/assets/photos/foodie-beads-lunch.jpg";
+import foodiePaintCards from "@/assets/photos/foodie-paint-cards.jpg";
+import foodiePaintSmiles from "@/assets/photos/foodie-paint-smiles.jpg";
+import foodiePaintTable from "@/assets/photos/foodie-paint-table.jpg";
 
 // All community photos live here. To swap one, drop a new file into
 // src/assets/photos/ and change its import above. Executive board headshots
@@ -84,5 +90,29 @@ export const PHOTOS = {
   picnicWatermelon: {
     src: picnicWatermelon,
     alt: "Students at a long table taking part in a watermelon-eating contest",
+  },
+  foodieBeadSupplies: {
+    src: foodieBeadSupplies,
+    alt: "Colorful boxes of beads and bowls of charms set out on a wooden table",
+  },
+  foodieBeadingHands: {
+    src: foodieBeadingHands,
+    alt: "Students reaching across a table to pick beads for bracelets",
+  },
+  foodieBeadsLunch: {
+    src: foodieBeadsLunch,
+    alt: "Two students making bracelets at a cafe table after lunch",
+  },
+  foodiePaintCards: {
+    src: foodiePaintCards,
+    alt: "Students at a cafe table holding up their watercolor paintings",
+  },
+  foodiePaintSmiles: {
+    src: foodiePaintSmiles,
+    alt: "Students painting watercolors at a wooden cafe table",
+  },
+  foodiePaintTable: {
+    src: foodiePaintTable,
+    alt: "Students chatting with bubble tea while painting at a long table",
   },
 } satisfies Record<string, Photo>;

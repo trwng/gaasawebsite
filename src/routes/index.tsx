@@ -41,7 +41,14 @@ const EVENTS: EventItem[] = [
     name: "Foodie Fridays",
     when: "Monthly",
     desc: "Each month we support a local Asian-owned business and meet people from other schools.",
-    gallery: [],
+    gallery: [
+      PHOTOS.foodieBeadSupplies,
+      PHOTOS.foodieBeadingHands,
+      PHOTOS.foodieBeadsLunch,
+      PHOTOS.foodiePaintCards,
+      PHOTOS.foodiePaintSmiles,
+      PHOTOS.foodiePaintTable,
+    ],
   },
   {
     name: "Summer Picnic",
