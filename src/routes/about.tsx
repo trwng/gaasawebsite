@@ -80,9 +80,6 @@ function About() {
   return (
     <div>
       <section className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-24">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-          About us
-        </p>
         <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
           About GAASA
         </h1>
@@ -142,10 +139,7 @@ function About() {
           <div className="mt-10 divide-y divide-border border-y border-border">
             {VALUES.map((value, i) => (
               <div key={value.title} className="grid gap-2 py-6 sm:grid-cols-12">
-                <span className="font-display text-sm font-bold text-primary sm:col-span-1">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-lg font-bold sm:col-span-4">
+                <h3 className="font-display text-lg font-bold sm:col-span-5">
                   {value.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted-foreground sm:col-span-7">
@@ -196,7 +190,7 @@ function About() {
                   : {})}
                 className="group bg-card px-5 py-6 transition-colors hover:bg-secondary/60 sm:px-7"
               >
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                <p className="text-sm font-semibold text-foreground">
                   {c.label}
                 </p>
                 <p className="mt-3 break-words font-display text-lg font-bold text-primary">

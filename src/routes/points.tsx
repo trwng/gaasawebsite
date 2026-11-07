@@ -211,7 +211,7 @@ function RuleRow({ label, points }: { label: string; points: number }) {
         aria-hidden
         className="min-w-4 flex-1 border-b border-dotted border-border"
       />
-      <span className="font-display text-sm font-semibold tabular-nums text-primary">
+      <span className="font-display text-sm font-semibold tabular-nums">
         +{points}
       </span>
     </li>
@@ -226,9 +226,6 @@ function Points() {
   return (
     <div>
       <section className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-24">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-          Points
-        </p>
         <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
           The point system
         </h1>
@@ -248,7 +245,7 @@ function Points() {
           </div>
           <div className="grid gap-px bg-border sm:grid-cols-3">
             <div className="bg-card px-5 py-6 sm:px-7">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              <p className="text-sm font-semibold text-foreground">
                 Event attendance
               </p>
               <ul className="mt-4 divide-y divide-border/70">
@@ -258,7 +255,7 @@ function Points() {
               </ul>
             </div>
             <div className="bg-card px-5 py-6 sm:px-7">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              <p className="text-sm font-semibold text-foreground">
                 Bonus points
               </p>
               <ul className="mt-4 divide-y divide-border/70">
@@ -271,7 +268,7 @@ function Points() {
               </p>
             </div>
             <div className="bg-card px-5 py-6 sm:px-7">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              <p className="text-sm font-semibold text-foreground">
                 What you can win
               </p>
               <div className="mt-4 space-y-5">
@@ -323,7 +320,7 @@ function Points() {
                   className="flex w-full items-center gap-5 py-4 text-left transition-colors hover:bg-secondary/60"
                 >
                   <span className="w-8 shrink-0 font-display text-sm font-bold text-muted-foreground">
-                    {String(i + 1).padStart(2, "0")}
+                    {i + 1}
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="truncate font-semibold">{entry.school}</p>
@@ -339,7 +336,7 @@ function Points() {
                       />
                     </div>
                   </div>
-                  <span className="font-display text-lg font-bold tabular-nums text-primary">
+                  <span className="font-display text-lg font-bold tabular-nums">
                     {schoolTotal}
                   </span>
                   <span
@@ -370,7 +367,7 @@ function Points() {
                           aria-hidden
                           className="min-w-4 flex-1 border-b border-dotted border-border"
                         />
-                        <span className="font-display text-sm font-semibold tabular-nums text-primary">
+                        <span className="font-display text-sm font-semibold tabular-nums">
                           {member.points}
                         </span>
                       </li>

@@ -103,9 +103,6 @@ function Index() {
       {/* Hero */}
       <section className="relative">
         <div className="mx-auto max-w-6xl px-4 pt-14 sm:px-6 sm:pt-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            Gwinnett County, Georgia · Est. 2018
-          </p>
           <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl">
             Gwinnett Asian American Student Association
           </h1>
@@ -116,7 +113,7 @@ function Index() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/about"
-              className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-crimson-deep"
+              className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               About us
             </Link>
@@ -144,9 +141,6 @@ function Index() {
 
       {/* Announcements. Edit the list in src/lib/announcements.ts */}
       <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6 sm:pt-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-          Announcements
-        </p>
         <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
           What&apos;s new
         </h2>
@@ -161,7 +155,7 @@ function Index() {
                 key={`${item.date}-${item.title}`}
                 className="grid gap-2 py-5 sm:grid-cols-12 sm:items-baseline"
               >
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:col-span-2">
+                <p className="text-sm text-muted-foreground sm:col-span-2">
                   {item.date}
                 </p>
                 <h3 className="font-display text-lg font-bold sm:col-span-4">
@@ -180,9 +174,6 @@ function Index() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-              01 / Mission
-            </p>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight">
               What GAASA is
             </h2>
@@ -208,7 +199,7 @@ function Index() {
                 ["$8,000", "raised at Banquet 2024"],
               ].map(([num, label]) => (
                 <div key={label}>
-                  <dt className="font-display text-2xl font-bold text-primary">{num}</dt>
+                  <dt className="font-display text-2xl font-bold">{num}</dt>
                   <dd className="text-sm text-muted-foreground">{label}</dd>
                 </div>
               ))}
@@ -220,9 +211,6 @@ function Index() {
       {/* Events — simple list, not cards */}
       <section className="border-y border-border bg-secondary/60">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            02 / Events
-          </p>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
             At least one event a month
           </h2>
@@ -242,7 +230,7 @@ function Index() {
                       <span className="font-display text-lg font-bold sm:col-span-4">
                         {event.name}
                       </span>
-                      <span className="text-xs font-semibold uppercase tracking-widest text-primary sm:col-span-2">
+                      <span className="text-sm text-muted-foreground sm:col-span-2">
                         {event.when}
                       </span>
                       <span className="text-sm font-normal text-muted-foreground sm:col-span-6">
@@ -278,7 +266,7 @@ function Index() {
                   <h3 className="font-display text-lg font-bold sm:col-span-4">
                     {event.name}
                   </h3>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:col-span-2">
+                  <p className="text-sm text-muted-foreground sm:col-span-2">
                     {event.when}
                   </p>
                   <p className="text-sm text-muted-foreground sm:col-span-6">
@@ -293,9 +281,6 @@ function Index() {
 
       {/* Gallery */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-          03 / Gallery
-        </p>
         <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
           Photos from past events
         </h2>

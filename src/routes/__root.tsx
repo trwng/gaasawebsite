@@ -35,7 +35,7 @@ function SiteNav() {
             className="h-9 w-9 rounded-lg"
           />
           <span className="hidden font-display text-lg font-bold tracking-tight sm:inline">
-            Gwinnett <span className="text-primary">AASA</span>
+            Gwinnett AASA
           </span>
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2">
@@ -61,7 +61,7 @@ function SiteFooter() {
     <footer className="border-t border-border bg-secondary">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-10 text-center sm:px-6">
         <span className="font-display text-lg font-bold">
-          Gwinnett <span className="text-primary">AASA</span>
+          Gwinnett AASA
         </span>
         <p className="max-w-md text-sm text-muted-foreground">
           A student-run group for Asian American students across Gwinnett
@@ -186,7 +186,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600;700&display=swap",
       },
     ],
   }),

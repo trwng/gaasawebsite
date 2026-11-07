@@ -43,9 +43,6 @@ function Leadership() {
   return (
     <div>
       <section className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-24">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-          Leadership
-        </p>
         <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
           The Executive Board
         </h1>
@@ -72,7 +69,7 @@ function Leadership() {
               <h3 className="mt-4 font-display text-base font-bold">
                 {member.name}
               </h3>
-              <p className="text-sm font-semibold text-primary">{member.role}</p>
+              <p className="text-sm text-muted-foreground">{member.role}</p>
               {member.school && (
                 <p className="mt-0.5 text-xs text-muted-foreground">
                   {member.school}
