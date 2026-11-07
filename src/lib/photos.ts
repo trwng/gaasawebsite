@@ -9,6 +9,11 @@ import fieldDayRibbons from "@/assets/photos/field-day-ribbons.jpg";
 import parkGroup from "@/assets/photos/park-group.jpg";
 import picnicPavilion from "@/assets/photos/picnic-pavilion.jpg";
 import stagePerformance from "@/assets/photos/stage-performance.jpg";
+import picnicTrio from "@/assets/photos/picnic-trio.jpg";
+import picnicGroup from "@/assets/photos/picnic-group.jpg";
+import picnicFoodTent from "@/assets/photos/picnic-food-tent.jpg";
+import picnicCrowd from "@/assets/photos/picnic-crowd.jpg";
+import picnicWatermelon from "@/assets/photos/picnic-watermelon.jpg";
 
 // All community photos live here. To swap one, drop a new file into
 // src/assets/photos/ and change its import above. Executive board headshots
@@ -59,5 +64,25 @@ export const PHOTOS = {
   stagePerformance: {
     src: stagePerformance,
     alt: "Dancers in football jerseys and white skirts performing on stage",
+  },
+  picnicTrio: {
+    src: picnicTrio,
+    alt: "Three students smiling and making peace signs on the grass by a lake",
+  },
+  picnicGroup: {
+    src: picnicGroup,
+    alt: "Seven students standing together in a park, two holding water guns",
+  },
+  picnicFoodTent: {
+    src: picnicFoodTent,
+    alt: "Students serving pizza and snacks at a food table under a blue tent",
+  },
+  picnicCrowd: {
+    src: picnicCrowd,
+    alt: "Students gathered on the lawn near blue tents, listening to an announcement",
+  },
+  picnicWatermelon: {
+    src: picnicWatermelon,
+    alt: "Students at a long table taking part in a watermelon-eating contest",
   },
 } satisfies Record<string, Photo>;

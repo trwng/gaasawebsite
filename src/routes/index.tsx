@@ -47,7 +47,13 @@ const EVENTS: EventItem[] = [
     name: "Summer Picnic",
     when: "August",
     desc: "The first big hangout of the year. Food, games, and new faces.",
-    gallery: [],
+    gallery: [
+      PHOTOS.picnicTrio,
+      PHOTOS.picnicGroup,
+      PHOTOS.picnicFoodTent,
+      PHOTOS.picnicCrowd,
+      PHOTOS.picnicWatermelon,
+    ],
   },
   {
     name: "Field Day",
@@ -246,7 +252,7 @@ function Index() {
                               src={photo.src}
                               alt={photo.alt}
                               loading="lazy"
-                              className="aspect-[4/3] w-full rounded-lg object-cover"
+                              className="aspect-square w-full rounded-lg object-cover"
                             />
                           ))
                         : Array.from({ length: 3 }).map((_, i) => (
