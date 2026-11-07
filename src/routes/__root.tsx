@@ -4,77 +4,23 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  useLocation,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 import appCss from "../styles.css?url";
 import logo from "../assets/logo.png";
 import { DISCORD_URL, EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "../lib/links";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
-const NAV_CLASS =
-  "whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-semibold text-muted-foreground transition-colors hover:text-foreground sm:px-3 sm:text-sm";
-
-function NavLink({
-  to,
-  label,
-  exact,
-}: {
-  to: "/" | "/leadership" | "/contact";
-  label: string;
-  exact?: boolean;
-}) {
-  return (
-    <Link
-      to={to}
-      activeOptions={{ exact: !!exact }}
-      className={NAV_CLASS}
-      activeProps={{ className: "bg-primary/10 text-primary" }}
-    >
-      {label}
-    </Link>
-  );
-}
-
-function AboutMenu() {
-  const path = useLocation({ select: (l) => l.pathname.replace(/\/$/, "") });
-  const active = path.endsWith("/about") || path.endsWith("/points");
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        className={`${NAV_CLASS} inline-flex items-center gap-1 outline-none ${
-          active ? "bg-primary/10 text-primary" : ""
-        }`}
-      >
-        About Us
-        <ChevronDown className="h-3.5 w-3.5" aria-hidden />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-44">
-        <DropdownMenuItem asChild>
-          <Link to="/about" className="cursor-pointer text-sm">
-            GAASA
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link to="/points" className="cursor-pointer text-sm">
-            School Standings
-          </Link>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
+const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About Us" },
+  { to: "/leadership", label: "Board" },
+  { to: "/contact", label: "Contact Us" },
+] as const;
 
 function SiteNav() {
   return (
@@ -93,10 +39,17 @@ function SiteNav() {
           </span>
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2">
-          <NavLink to="/" label="Home" exact />
-          <AboutMenu />
-          <NavLink to="/leadership" label="Board" />
-          <NavLink to="/contact" label="Contact Us" />
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              activeOptions={{ exact: link.to === "/" }}
+              className="whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-semibold text-muted-foreground transition-colors hover:text-foreground sm:px-3 sm:text-sm"
+              activeProps={{ className: "bg-primary/10 text-primary" }}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
