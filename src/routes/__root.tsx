@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import logo from "../assets/logo.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 const NAV_LINKS = [
@@ -25,9 +26,13 @@ function SiteNav() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary font-display text-sm font-bold text-primary-foreground">
-            龍
-          </span>
+          <img
+            src={logo}
+            alt="Gwinnett AASA logo"
+            width={36}
+            height={36}
+            className="h-9 w-9 rounded-lg"
+          />
           <span className="font-display text-lg font-bold tracking-tight">
             Gwinnett <span className="text-primary">AASA</span>
           </span>
@@ -58,8 +63,15 @@ function SiteFooter() {
           Gwinnett <span className="text-primary">AASA</span>
         </span>
         <p className="max-w-md text-sm text-muted-foreground">
-          A student-led organization connecting Gwinnett County's
-          Asian-American community and celebrating our cultures.
+          A student-run group for Asian American students across Gwinnett
+          County. Follow us on Instagram @gwinnettaasa or email{" "}
+          <a
+            href="mailto:gwinnettaasa@gmail.com"
+            className="underline underline-offset-4 hover:text-primary"
+          >
+            gwinnettaasa@gmail.com
+          </a>
+          .
         </p>
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Gwinnett Asian American Student Association
@@ -138,20 +150,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Gwinnett Asian American Student Association — connecting Gwinnett County's Asian-American student community through culture, events, and leadership.",
+          "GAASA is a student-run group that connects Asian American students across Gwinnett County through events, food, and community.",
       },
       { property: "og:title", content: "Gwinnett AASA" },
       {
         property: "og:description",
         content:
-          "A student-led organization celebrating Asian-American culture across Gwinnett County schools.",
+          "A student-run group for Asian American students across Gwinnett County.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: logo, type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

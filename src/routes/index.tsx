@@ -4,17 +4,17 @@ import { PHOTOS } from "@/lib/photos";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gwinnett AASA — Asian American Student Association" },
+      { title: "Gwinnett AASA | Asian American Student Association" },
       {
         name: "description",
         content:
-          "Gwinnett AASA is a student-led organization connecting Asian-American students across Gwinnett County schools through culture, events, and community.",
+          "GAASA is a student-run group that connects Asian American students across Gwinnett County through events, food, and community.",
       },
-      { property: "og:title", content: "Gwinnett AASA — Asian American Student Association" },
+      { property: "og:title", content: "Gwinnett AASA | Asian American Student Association" },
       {
         property: "og:description",
         content:
-          "A student-led organization celebrating Asian-American culture across Gwinnett County schools.",
+          "A student-run group for Asian American students across Gwinnett County.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -24,12 +24,36 @@ export const Route = createFileRoute("/")({
 });
 
 const EVENTS = [
-  { name: "Foodie Fridays", when: "Monthly", desc: "Tasting the flavors of our cultures, one Friday at a time." },
-  { name: "Summer Picnic", when: "August", desc: "Kicking off the year with food, games, and new friends." },
-  { name: "Field Day", when: "Fall", desc: "School vs. school competition across the county." },
-  { name: "Game Tourneys", when: "Winter", desc: "Bringing out everyone's competitive side." },
-  { name: "Movie Nights", when: "Spring", desc: "Celebrating AAPI stories on the big screen." },
-  { name: "Annual Banquet", when: "April", desc: "Our biggest night — dinner, performances, and awards." },
+  {
+    name: "Foodie Fridays",
+    when: "Monthly",
+    desc: "Each month we support a local Asian-owned business and meet people from other schools.",
+  },
+  {
+    name: "Summer Picnic",
+    when: "August",
+    desc: "The first big hangout of the year. Food, games, and new faces.",
+  },
+  {
+    name: "Field Day",
+    when: "Fall",
+    desc: "A free, county-wide field day with relay races and tug of war, plus a cultural twist.",
+  },
+  {
+    name: "Game Tourneys",
+    when: "Winter",
+    desc: "Schools go head to head. These started online during COVID.",
+  },
+  {
+    name: "Movie Nights",
+    when: "Spring",
+    desc: "Movie nights built around AAPI stories.",
+  },
+  {
+    name: "Annual Banquet",
+    when: "April",
+    desc: "Our biggest event. Food, games, raffles, awards, and student performances.",
+  },
 ];
 
 // Gallery photos: the first one is the large tile, the rest fill the grid.
@@ -52,14 +76,14 @@ function Index() {
       <section className="relative">
         <div className="mx-auto max-w-6xl px-4 pt-14 sm:px-6 sm:pt-20">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            Gwinnett County, Georgia — est. 2018
+            Gwinnett County, Georgia · Est. 2018
           </p>
           <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl">
             Gwinnett Asian American Student Association
           </h1>
           <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">
-            A student-led organization connecting our Asian-American community
-            and celebrating our cultures across Gwinnett County schools.
+            We're a student-run group that connects Asian American students
+            across Gwinnett County through food, events, and community.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -95,29 +119,30 @@ function Index() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-              01 — Mission
+              01 / Mission
             </p>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight">
-              Culture celebrated. Community connected.
+              What GAASA is
             </h2>
           </div>
           <div className="md:col-span-5">
             <p className="leading-relaxed text-muted-foreground">
-              GAASA unites the Asian American Student Associations of Gwinnett
-              County's high schools into one county-wide family. We promote
-              AAPI awareness, empower young leaders, and create spaces where
-              our cultures are shared and celebrated.
+              GAASA brings together the Asian American Student Associations
+              (AASAs) at Gwinnett County high schools. Each school's AASA runs
+              on its own, and we put on county-wide events so students from
+              different schools can meet, eat, and celebrate our cultures.
+              Almost every event is free.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Anyone is welcome — Gwinnett student or not. If you show up, you
-              belong.
+              Anyone can come, whether you go to a Gwinnett school or not. If
+              you show up, you're one of us.
             </p>
           </div>
           <div className="md:col-span-3">
             <dl className="space-y-6 border-l-2 border-primary/20 pl-6">
               {[
-                ["19+", "schools"],
-                ["200+", "students per event"],
+                ["20+", "schools"],
+                ["100–200", "students at every event"],
                 ["$8,000", "raised at Banquet 2024"],
               ].map(([num, label]) => (
                 <div key={label}>
@@ -134,10 +159,10 @@ function Index() {
       <section className="border-y border-border bg-secondary/60">
         <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-            02 — Events
+            02 / Events
           </p>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
-            What we run each year
+            At least one event a month
           </h2>
           <div className="mt-12 divide-y divide-border border-y border-border">
             {EVENTS.map((event) => (
@@ -163,10 +188,10 @@ function Index() {
       {/* Gallery */}
       <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-          03 — Gallery
+          03 / Gallery
         </p>
         <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
-          From our community
+          Photos from past events
         </h2>
         <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
           {GALLERY.map((photo, i) => (
@@ -193,12 +218,13 @@ function Index() {
       <section className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-20 sm:flex-row sm:items-end sm:justify-between sm:px-6">
           <h2 className="max-w-md font-display text-3xl font-bold leading-tight tracking-tight">
-            Anyone can join. Really.
+            Anyone can join.
           </h2>
           <div className="sm:text-right">
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Follow our socials or come to any event and you're already part
-              of the family.
+              Follow us on Instagram @gwinnettaasa or just show up to an
+              event. Questions or want to sponsor us? Email
+              gwinnettaasa@gmail.com.
             </p>
             <Link
               to="/leadership"

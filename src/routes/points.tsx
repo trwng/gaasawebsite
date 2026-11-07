@@ -4,17 +4,17 @@ import { useState } from "react";
 export const Route = createFileRoute("/points")({
   head: () => ({
     meta: [
-      { title: "Points — Gwinnett AASA" },
+      { title: "Points | Gwinnett AASA" },
       {
         name: "description",
         content:
-          "How GAASA's point system works, and where every Gwinnett County school and member stands this year.",
+          "How GAASA points work and where every school stands this year.",
       },
-      { property: "og:title", content: "Points — Gwinnett AASA" },
+      { property: "og:title", content: "Points | Gwinnett AASA" },
       {
         property: "og:description",
         content:
-          "How GAASA's point system works, and where every Gwinnett County school and member stands this year.",
+          "How GAASA points work and where every school stands this year.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -105,10 +105,8 @@ function Points() {
           The point system
         </h1>
         <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
-          By attending events, taking part in activities, and backing GAASA on
-          social media, you earn points for yourself and for your school. Every
-          point counts twice — toward your own total and toward your
-          school&apos;s standing.
+          Go to events, join in, and support GAASA on social media to earn
+          points. Every point counts for you and for your school.
         </p>
       </section>
 
@@ -141,8 +139,7 @@ function Points() {
                 ))}
               </ul>
               <p className="mt-6 border-t border-border pt-4 text-sm leading-relaxed text-muted-foreground">
-                Bonus points stack on top of the points you already earn for
-                showing up.
+                Bonus points get added on top of what you earn for showing up.
               </p>
             </div>
             <div className="bg-card px-5 py-6 sm:px-7">
@@ -155,8 +152,7 @@ function Points() {
                     Individual awards
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    Members with the highest individual totals are eligible to
-                    win prizes at our annual banquet.
+                    The members with the most points can win prizes at Banquet.
                   </p>
                 </div>
                 <div className="border-t border-border pt-5">
@@ -164,8 +160,7 @@ function Points() {
                     School awards
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    Schools with the highest overall totals receive monetary
-                    awards to support their GAASA chapter funds.
+                    The schools with the most points win money for their AASA's funds.
                   </p>
                 </div>
               </div>
@@ -180,8 +175,7 @@ function Points() {
           School standings
         </h2>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
-          Click a school to see its members and each member&apos;s individual
-          total.
+          Click a school to see its members and their points.
         </p>
 
         <div className="mt-8 divide-y divide-border border-y border-border">
@@ -230,7 +224,7 @@ function Points() {
                 </button>
                 {isOpen && members.length === 0 && (
                   <p className="ml-13 mr-13 mb-4 border-l-2 border-primary/20 py-1.5 pl-5 text-sm text-muted-foreground">
-                    No points yet — come to the next event!
+                    No points yet. Come to the next event!
                   </p>
                 )}
                 {isOpen && members.length > 0 && (
@@ -259,7 +253,7 @@ function Points() {
           })}
         </div>
         <p className="mt-6 text-sm text-muted-foreground">
-          Standings update after every event. Check back after the next one!
+          We update this after every event.
         </p>
       </section>
     </div>

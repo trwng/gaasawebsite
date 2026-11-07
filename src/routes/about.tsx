@@ -4,17 +4,17 @@ import { PHOTOS } from "@/lib/photos";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Gwinnett AASA" },
+      { title: "About Us | Gwinnett AASA" },
       {
         name: "description",
         content:
-          "Learn about the Gwinnett Asian American Student Association: our story, our mission, and the community we serve across Gwinnett County.",
+          "How GAASA started, what we do, and how the AASAs at Gwinnett County schools work together.",
       },
-      { property: "og:title", content: "About Us — Gwinnett AASA" },
+      { property: "og:title", content: "About Us | Gwinnett AASA" },
       {
         property: "og:description",
         content:
-          "Our story, our mission, and the AAPI student community we serve across Gwinnett County.",
+          "How GAASA started and what we do for Asian American students across Gwinnett County.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -25,20 +25,20 @@ export const Route = createFileRoute("/about")({
 
 const VALUES = [
   {
-    title: "Cultural pride",
-    desc: "We preserve and celebrate the diverse AAPI cultures that make up our community — Vietnamese, Korean, Chinese, South Asian, and beyond.",
+    title: "Student-run",
+    desc: "Students plan everything, from Foodie Fridays to a banquet for 250 people. Adult sponsors and local businesses help us out, but the work is ours.",
   },
   {
-    title: "Student leadership",
-    desc: "Everything we do is 100% student-organized, from Foodie Fridays to a banquet for 250 people.",
+    title: "Free events",
+    desc: "We do fundraisers so almost every event costs nothing to attend.",
   },
   {
-    title: "County-wide community",
-    desc: "Each school's AASA runs independently, but GAASA brings us all together as one family.",
+    title: "Open to anyone",
+    desc: "You don't have to be Asian American or go to a Gwinnett school. If you come, you're in.",
   },
   {
-    title: "Open to everyone",
-    desc: "You don't need to be Asian American — or even a Gwinnett student — to join.",
+    title: "All our cultures",
+    desc: "Vietnamese, Korean, Chinese, South Asian, and more. Banquet performances are where it shows the most.",
   },
 ];
 
@@ -59,13 +59,13 @@ function About() {
           About us
         </p>
         <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
-          One county. One community.
+          About GAASA
         </h1>
         <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
-          Officially established in 2018, the Gwinnett Asian American Student
-          Association is a collective of Gwinnett County high schools and their
-          individual AASAs — working to preserve and educate youth about AAPI
-          culture, empower young leaders, and foster bonds across our community.
+          GAASA became official in 2018. It's made up of the Asian American
+          Student Associations (AASAs) at Gwinnett County high schools. Every
+          school's AASA runs on its own, and GAASA is how they all come
+          together for county-wide events.
         </p>
       </section>
 
@@ -83,20 +83,26 @@ function About() {
           </div>
           <div className="md:col-span-6 md:col-start-7">
             <h2 className="font-display text-2xl font-bold tracking-tight">
-              From ten schools to a movement
+              How we started
             </h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              GAASA launched in 2018 with over ten schools already united under
-              a common goal. Since then, our county-wide events and diverse
-              board of leaders have helped more schools start their own AASA —
-              doubling the size of our organization.
+              We already had more than ten schools when GAASA began in 2018.
+              Since then our events and our board have helped more schools
+              start their own AASA, so we've about doubled in size. Now 100 to
+              200 students come to every event, and clubs from outside Gwinnett
+              show up too.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Today, 100–200 students join every event we run, and cultural
-              clubs from outside Gwinnett regularly come along too. Our
-              long-term dream: grow into the Georgia Asian American Student
-              Association, with every county building a community where culture
-              is celebrated.
+              COVID hit not long after we started. Events in 2020 and 2021 were
+              canceled and we lost some momentum. We switched to online game
+              tournaments and stayed active on social media so everyone could
+              still feel connected from home.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Next, we want to reach schools in other counties that are
+              interested in our events. Eventually we'd like to become the
+              Georgia Asian American Student Association, with every county
+              doing its own version of what we do.
             </p>
           </div>
         </div>
@@ -106,7 +112,7 @@ function About() {
       <section className="border-y border-border bg-secondary/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <h2 className="font-display text-2xl font-bold tracking-tight">
-            What we stand for
+            How we run things
           </h2>
           <div className="mt-10 divide-y divide-border border-y border-border">
             {VALUES.map((value, i) => (

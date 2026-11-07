@@ -3,17 +3,17 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/leadership")({
   head: () => ({
     meta: [
-      { title: "Leadership — Gwinnett AASA" },
+      { title: "Leadership | Gwinnett AASA" },
       {
         name: "description",
         content:
-          "Meet the student executive board leading the Gwinnett Asian American Student Association.",
+          "Meet the student executive board that runs GAASA.",
       },
-      { property: "og:title", content: "Leadership — Gwinnett AASA" },
+      { property: "og:title", content: "Leadership | Gwinnett AASA" },
       {
         property: "og:description",
         content:
-          "Meet the student executive board leading the Gwinnett Asian American Student Association.",
+          "Meet the student executive board that runs GAASA.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -22,19 +22,21 @@ export const Route = createFileRoute("/leadership")({
   component: Leadership,
 });
 
-// Replace names, schools, and photos with your actual board members.
-const BOARD = [
-  { name: "Name Here", role: "President", school: "School Name" },
-  { name: "Name Here", role: "Vice President", school: "School Name" },
-  { name: "Name Here", role: "Secretary", school: "School Name" },
-  { name: "Name Here", role: "Treasurer", school: "School Name" },
-  { name: "Name Here", role: "Events Chair", school: "School Name" },
-  { name: "Name Here", role: "Events Chair", school: "School Name" },
-  { name: "Name Here", role: "Public Relations", school: "School Name" },
-  { name: "Name Here", role: "Public Relations", school: "School Name" },
-  { name: "Name Here", role: "Historian", school: "School Name" },
-  { name: "Name Here", role: "Outreach Chair", school: "School Name" },
-  { name: "Name Here", role: "Outreach Chair", school: "School Name" },
+// The executive board. `school` and `photo` are optional.
+// To add a headshot: put the image in src/assets/, import it at the top of this
+// file, and add `photo: importedImage` to that person's line.
+const BOARD: { name: string; role: string; school?: string; photo?: string }[] = [
+  { name: "Tara Wang", role: "President", school: "GSMST" },
+  { name: "Anya Chung", role: "Executive Director", school: "Norcross" },
+  { name: "Suhan Osman", role: "External VP", school: "Central Gwinnett" },
+  { name: "Nhi Vuong", role: "Internal VP", school: "Grayson" },
+  { name: "Andy Lee", role: "Secretary" },
+  { name: "Geonhee Shin", role: "Treasurer" },
+  { name: "Hannah Kim", role: "Historian", school: "GSMST" },
+  { name: "Nancy Chen", role: "Webmaster" },
+  { name: "Edison Her", role: "Member at Large", school: "Duluth" },
+  { name: "Jinho Byun", role: "Member at Large" },
+  { name: "Joyce Do", role: "Technology Director", school: "Collins Hill" },
 ];
 
 function Leadership() {
@@ -48,9 +50,9 @@ function Leadership() {
           The Executive Board
         </h1>
         <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">
-          GAASA is 100% student-organized. Our board of Gwinnett County high
-          schoolers plans and directs every event of the year — from Foodie
-          Fridays to the annual Banquet.
+          Students plan every GAASA event. The executive board is a small group
+          of high schoolers from across the county, and the GAASA Board adds a
+          representative from each school.
         </p>
       </section>
 
@@ -58,14 +60,24 @@ function Leadership() {
         <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {BOARD.map((member, i) => (
             <div key={`${member.role}-${i}`}>
-              <div className="photo-slot aspect-[4/5]">Headshot</div>
+              {member.photo ? (
+                <img
+                  src={member.photo}
+                  alt={`${member.name}, ${member.role}`}
+                  className="aspect-[4/5] w-full rounded-lg object-cover"
+                />
+              ) : (
+                <div className="photo-slot aspect-[4/5]">Headshot</div>
+              )}
               <h3 className="mt-4 font-display text-base font-bold">
                 {member.name}
               </h3>
               <p className="text-sm font-semibold text-primary">{member.role}</p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                {member.school}
-              </p>
+              {member.school && (
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {member.school}
+                </p>
+              )}
             </div>
           ))}
         </div>
@@ -77,8 +89,9 @@ function Leadership() {
             Want to lead?
           </h2>
           <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
-            Board applications open each year. Start by getting involved with
-            your school's AASA — or help us start one at your school.
+            Board applications open each year. The easiest way in is to get
+            involved with your school's AASA, or help start one if your school
+            doesn't have one yet.
           </p>
         </div>
       </section>
