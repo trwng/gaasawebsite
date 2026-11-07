@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImage from "@/assets/hero.jpg";
+import { PHOTOS } from "@/lib/photos";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,6 +30,19 @@ const EVENTS = [
   { name: "Game Tourneys", when: "Winter", desc: "Bringing out everyone's competitive side." },
   { name: "Movie Nights", when: "Spring", desc: "Celebrating AAPI stories on the big screen." },
   { name: "Annual Banquet", when: "April", desc: "Our biggest night — dinner, performances, and awards." },
+];
+
+// Gallery photos: the first one is the large tile, the rest fill the grid.
+const GALLERY = [
+  PHOTOS.parkGroup,
+  PHOTOS.fieldDayRibbons,
+  PHOTOS.banquetTable,
+  PHOTOS.picnicPavilion,
+  PHOTOS.fieldDayGame,
+  PHOTOS.facePainting,
+  PHOTOS.aoDaiTable,
+  PHOTOS.bingoTable,
+  PHOTOS.stagePerformance,
 ];
 
 function Index() {
@@ -65,14 +78,14 @@ function Index() {
         </div>
         <div className="mx-auto mt-12 max-w-6xl px-4 sm:px-6">
           <img
-            src={heroImage}
-            alt="Asian cultural festival with dragon dance and lanterns"
-            className="aspect-[21/9] w-full rounded-lg object-cover"
-            width={1920}
-            height={1088}
+            src={PHOTOS.banquetHall.src}
+            alt={PHOTOS.banquetHall.alt}
+            className="aspect-[21/9] w-full rounded-lg object-cover object-center"
+            width={1754}
+            height={978}
           />
           <p className="mt-3 text-xs text-muted-foreground">
-            Dragon dance at the annual Banquet — replace with your own photo.
+            GAASA members gathered at an event.
           </p>
         </div>
       </section>
@@ -156,10 +169,21 @@ function Index() {
           From our community
         </h2>
         <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
-          <div className="photo-slot col-span-2 row-span-2 aspect-square">Photo</div>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="photo-slot aspect-square">
-              Photo
+          {GALLERY.map((photo, i) => (
+            <div
+              key={photo.src}
+              className={
+                i === 0
+                  ? "relative col-span-2 row-span-2 min-h-0 overflow-hidden rounded-lg bg-muted"
+                  : "relative aspect-[4/3] overflow-hidden rounded-lg bg-muted"
+              }
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PHOTOS } from "@/lib/photos";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -41,6 +42,15 @@ const VALUES = [
   },
 ];
 
+const BAND = [
+  PHOTOS.bingoTable,
+  PHOTOS.stagePerformance,
+  PHOTOS.picnicPavilion,
+  PHOTOS.aoDaiTable,
+  PHOTOS.fieldDayGame,
+  PHOTOS.facePainting,
+];
+
 function About() {
   return (
     <div>
@@ -63,7 +73,13 @@ function About() {
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="photo-slot aspect-[4/5]">Group photo here</div>
+            <img
+              src={PHOTOS.coffeeByHandGroup.src}
+              alt={PHOTOS.coffeeByHandGroup.alt}
+              className="aspect-[4/3] w-full rounded-lg object-cover"
+              width={1558}
+              height={1028}
+            />
           </div>
           <div className="md:col-span-6 md:col-start-7">
             <h2 className="font-display text-2xl font-bold tracking-tight">
@@ -113,9 +129,17 @@ function About() {
       {/* Photo band */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="photo-slot aspect-[4/3]">
-              Photo
+          {BAND.map((photo) => (
+            <div
+              key={photo.src}
+              className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted"
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
           ))}
         </div>

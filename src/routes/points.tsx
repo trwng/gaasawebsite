@@ -40,115 +40,37 @@ const BONUS_POINTS = [
 ];
 
 // ---- Standings. A school's total is the sum of its members' points. ----
+// Everyone starts at 0. To add points, add members to a school, e.g.:
+//   { school: "Archer", members: [{ name: "Jane Doe", points: 25 }] }
 type Member = { name: string; points: number };
-type School = { school: string; members: Member[] };
+type School = { school: string; fullName?: string; members: Member[] };
 
 const STANDINGS: School[] = [
+  { school: "Archer", members: [] },
+  { school: "Berkmar", members: [] },
+  { school: "Brookwood", members: [] },
+  { school: "Central Gwinnett", members: [] },
+  { school: "Collins Hill", members: [] },
+  { school: "Dacula", members: [] },
+  { school: "Duluth", members: [] },
+  { school: "Grayson", members: [] },
   {
-    school: "School A",
-    members: [
-      { name: "Member Name", points: 45 },
-      { name: "Member Name", points: 30 },
-      { name: "Member Name", points: 18 },
-    ],
+    school: "GSMST",
+    fullName: "Gwinnett School of Mathematics, Science, and Technology",
+    members: [],
   },
-  {
-    school: "School B",
-    members: [
-      { name: "Member Name", points: 52 },
-      { name: "Member Name", points: 27 },
-    ],
-  },
-  {
-    school: "School C",
-    members: [
-      { name: "Member Name", points: 38 },
-      { name: "Member Name", points: 22 },
-      { name: "Member Name", points: 15 },
-      { name: "Member Name", points: 10 },
-    ],
-  },
-  { school: "School D", members: [{ name: "Member Name", points: 60 }] },
-  {
-    school: "School E",
-    members: [
-      { name: "Member Name", points: 35 },
-      { name: "Member Name", points: 28 },
-    ],
-  },
-  {
-    school: "School F",
-    members: [
-      { name: "Member Name", points: 40 },
-      { name: "Member Name", points: 25 },
-      { name: "Member Name", points: 20 },
-    ],
-  },
-  { school: "School G", members: [{ name: "Member Name", points: 22 }] },
-  {
-    school: "School H",
-    members: [
-      { name: "Member Name", points: 33 },
-      { name: "Member Name", points: 12 },
-    ],
-  },
-  {
-    school: "School I",
-    members: [
-      { name: "Member Name", points: 28 },
-      { name: "Member Name", points: 19 },
-      { name: "Member Name", points: 14 },
-    ],
-  },
-  { school: "School J", members: [{ name: "Member Name", points: 47 }] },
-  {
-    school: "School K",
-    members: [
-      { name: "Member Name", points: 26 },
-      { name: "Member Name", points: 21 },
-    ],
-  },
-  {
-    school: "School L",
-    members: [
-      { name: "Member Name", points: 30 },
-      { name: "Member Name", points: 17 },
-      { name: "Member Name", points: 9 },
-    ],
-  },
-  { school: "School M", members: [{ name: "Member Name", points: 15 }] },
-  {
-    school: "School N",
-    members: [
-      { name: "Member Name", points: 24 },
-      { name: "Member Name", points: 20 },
-    ],
-  },
-  {
-    school: "School O",
-    members: [
-      { name: "Member Name", points: 20 },
-      { name: "Member Name", points: 16 },
-      { name: "Member Name", points: 11 },
-    ],
-  },
-  { school: "School P", members: [{ name: "Member Name", points: 8 }] },
-  {
-    school: "School Q",
-    members: [
-      { name: "Member Name", points: 18 },
-      { name: "Member Name", points: 13 },
-    ],
-  },
-  {
-    school: "School R",
-    members: [
-      { name: "Member Name", points: 12 },
-      { name: "Member Name", points: 10 },
-      { name: "Member Name", points: 7 },
-    ],
-  },
-  { school: "School S", members: [{ name: "Member Name", points: 5 }] },
+  { school: "Lanier", members: [] },
+  { school: "Meadowcreek", members: [] },
+  { school: "Mill Creek", members: [] },
+  { school: "Mountain View", members: [] },
+  { school: "Norcross", members: [] },
+  { school: "North Gwinnett", members: [] },
+  { school: "Parkview", members: [] },
+  { school: "Paul Duke", fullName: "Paul Duke STEM High School", members: [] },
+  { school: "Peachtree Ridge", members: [] },
+  { school: "Seckinger", members: [] },
+  { school: "South Gwinnett", members: [] },
+  { school: "Buford", members: [] },
 ];
 
 const total = (s: School) => s.members.reduce((sum, m) => sum + m.points, 0);
@@ -282,6 +204,11 @@ function Points() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="truncate font-semibold">{entry.school}</p>
+                    {entry.fullName && (
+                      <p className="truncate text-xs text-muted-foreground">
+                        {entry.fullName}
+                      </p>
+                    )}
                     <div className="mt-2.5 h-1 overflow-hidden rounded-full bg-muted">
                       <div
                         className="h-full rounded-full bg-primary transition-all"
@@ -301,7 +228,12 @@ function Points() {
                     ▾
                   </span>
                 </button>
-                {isOpen && (
+                {isOpen && members.length === 0 && (
+                  <p className="ml-13 mr-13 mb-4 border-l-2 border-primary/20 py-1.5 pl-5 text-sm text-muted-foreground">
+                    No points yet — come to the next event!
+                  </p>
+                )}
+                {isOpen && members.length > 0 && (
                   <ul className="ml-13 mr-13 mb-4 space-y-px border-l-2 border-primary/20 pl-5">
                     {members.map((member, idx) => (
                       <li
