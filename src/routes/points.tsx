@@ -40,35 +40,103 @@ const BONUS_POINTS = [
 ];
 
 // ---- Standings. A school's total is the sum of its members' points. ----
-// Everyone starts at 0. To add points, add members to a school, e.g.:
-//   { school: "Archer", members: [{ name: "Jane Doe", points: 25 }] }
+// Points so far: Summer Picnic (+25 each) and Instagram reposts (+2 each).
+// To add points: add a member under their school, or raise their number, e.g.:
+//   { name: "Jane Doe", points: 25 }
 type Member = { name: string; points: number };
 type School = { school: string; fullName?: string; members: Member[] };
 
 const STANDINGS: School[] = [
   { school: "Archer", members: [] },
   { school: "Berkmar", members: [] },
-  { school: "Brookwood", members: [] },
-  { school: "Central Gwinnett", members: [] },
-  { school: "Collins Hill", members: [] },
+  {
+    school: "Brookwood",
+    members: [{ name: "Minh Nguyễn", points: 25 }],
+  },
+  {
+    school: "Central Gwinnett",
+    members: [
+      { name: "Suhan Osman", points: 25 },
+      { name: "Ben Phan", points: 25 },
+    ],
+  },
+  {
+    school: "Collins Hill",
+    members: [{ name: "Mikael Gastador", points: 25 }],
+  },
   { school: "Dacula", members: [] },
-  { school: "Duluth", members: [] },
+  {
+    school: "Duluth",
+    members: [{ name: "Kaden Park", points: 25 }],
+  },
   { school: "Grayson", members: [] },
   {
     school: "GSMST",
     fullName: "Gwinnett School of Mathematics, Science, and Technology",
-    members: [],
+    members: [
+      { name: "Vina Vo", points: 25 },
+      { name: "Joe Huynh", points: 25 },
+    ],
   },
-  { school: "Lanier", members: [] },
+  {
+    school: "Lanier",
+    members: [
+      { name: "Ethan Setiadi", points: 25 },
+      { name: "Isaac Nguyen", points: 25 },
+      { name: "Jaydon Tran", points: 25 },
+      { name: "Deborah An", points: 25 },
+      { name: "Caleb Mani", points: 25 },
+    ],
+  },
   { school: "Meadowcreek", members: [] },
   { school: "Mill Creek", members: [] },
-  { school: "Mountain View", members: [] },
-  { school: "Norcross", members: [] },
-  { school: "North Gwinnett", members: [] },
+  {
+    school: "Mountain View",
+    members: [
+      { name: "Sylvia Her", points: 25 },
+      { name: "Sohyeon", points: 25 },
+      { name: "Noel Jeong", points: 25 },
+      { name: "Vyvy Nguyen", points: 29 }, // 25 Summer Picnic + 4 for 2 Instagram reposts
+      { name: "Anh Tran", points: 25 },
+      { name: "Gabriella Cruz", points: 25 },
+      { name: "Liem Tran", points: 25 },
+      { name: "Sunny Mai", points: 25 },
+    ],
+  },
+  {
+    school: "Norcross",
+    members: [
+      { name: "Keith Hoe", points: 25 },
+      { name: "Cindy Nguyen", points: 25 },
+    ],
+  },
+  {
+    school: "North Gwinnett",
+    members: [{ name: "McKinley Parham", points: 25 }],
+  },
   { school: "Parkview", members: [] },
-  { school: "Paul Duke", fullName: "Paul Duke STEM High School", members: [] },
-  { school: "Peachtree Ridge", members: [] },
-  { school: "Seckinger", members: [] },
+  {
+    school: "Paul Duke",
+    fullName: "Paul Duke STEM High School",
+    members: [{ name: "Mia Santiago", points: 25 }],
+  },
+  {
+    school: "Peachtree Ridge",
+    members: [
+      { name: "Jayden Phan", points: 25 },
+      { name: "Joshua Zhang", points: 25 },
+      { name: "Katherine Yang", points: 25 },
+      { name: "Ryan LeHoang", points: 25 },
+      { name: "Ruby Shin", points: 25 },
+      { name: "Paul Kim", points: 25 },
+      { name: "Carden Truong", points: 25 },
+      { name: "Thai Pham", points: 25 },
+    ],
+  },
+  {
+    school: "Seckinger",
+    members: [{ name: "Seung Jun Lee", points: 25 }],
+  },
   { school: "South Gwinnett", members: [] },
   { school: "Buford", members: [] },
 ];
@@ -160,7 +228,8 @@ function Points() {
                     School awards
                   </p>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    The schools with the most points win money for their AASA's funds.
+                    The schools with the most points win money for their AASA's
+                    funds.
                   </p>
                 </div>
               </div>

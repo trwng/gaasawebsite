@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import logo from "../assets/logo.png";
+import { DISCORD_URL, EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "../lib/links";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 const NAV_LINKS = [
@@ -64,15 +65,32 @@ function SiteFooter() {
         </span>
         <p className="max-w-md text-sm text-muted-foreground">
           A student-run group for Asian American students across Gwinnett
-          County. Follow us on Instagram @gwinnettaasa or email{" "}
-          <a
-            href="mailto:gwinnettaasa@gmail.com"
-            className="underline underline-offset-4 hover:text-primary"
-          >
-            gwinnettaasa@gmail.com
-          </a>
-          .
+          County.
         </p>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold">
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-primary"
+          >
+            Discord
+          </a>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground transition-colors hover:text-primary"
+          >
+            Instagram {INSTAGRAM_HANDLE}
+          </a>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="text-muted-foreground transition-colors hover:text-primary"
+          >
+            {EMAIL}
+          </a>
+        </div>
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Gwinnett Asian American Student Association
         </p>

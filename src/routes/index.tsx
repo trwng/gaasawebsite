@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PHOTOS } from "@/lib/photos";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { ANNOUNCEMENTS } from "@/lib/announcements";
+import { DISCORD_URL, EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/links";
+import { PHOTOS, type Photo } from "@/lib/photos";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,16 +31,23 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const EVENTS = [
+// Events with a `gallery` list open up when clicked. Leave it as [] to show
+// three "Photo" placeholder boxes, or fill it with photos from src/lib/photos.ts.
+// Events without `gallery` are plain rows.
+type EventItem = { name: string; when: string; desc: string; gallery?: Photo[] };
+
+const EVENTS: EventItem[] = [
   {
     name: "Foodie Fridays",
     when: "Monthly",
     desc: "Each month we support a local Asian-owned business and meet people from other schools.",
+    gallery: [],
   },
   {
     name: "Summer Picnic",
     when: "August",
     desc: "The first big hangout of the year. Food, games, and new faces.",
+    gallery: [],
   },
   {
     name: "Field Day",
@@ -114,6 +129,40 @@ function Index() {
         </div>
       </section>
 
+      {/* Announcements. Edit the list in src/lib/announcements.ts */}
+      <section className="mx-auto max-w-6xl px-4 pt-20 sm:px-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+          Announcements
+        </p>
+        <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
+          What&apos;s new
+        </h2>
+        <div className="mt-8 divide-y divide-border border-y border-border">
+          {ANNOUNCEMENTS.length === 0 ? (
+            <p className="py-5 text-sm text-muted-foreground">
+              Nothing new right now. Follow us on Instagram for the latest.
+            </p>
+          ) : (
+            ANNOUNCEMENTS.map((item) => (
+              <div
+                key={`${item.date}-${item.title}`}
+                className="grid gap-2 py-5 sm:grid-cols-12 sm:items-baseline"
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:col-span-2">
+                  {item.date}
+                </p>
+                <h3 className="font-display text-lg font-bold sm:col-span-4">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground sm:col-span-6">
+                  {item.body}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
+      </section>
+
       {/* Mission — offset two-column */}
       <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div className="grid gap-10 md:grid-cols-12">
@@ -164,24 +213,68 @@ function Index() {
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
             At least one event a month
           </h2>
-          <div className="mt-12 divide-y divide-border border-y border-border">
-            {EVENTS.map((event) => (
-              <div
-                key={event.name}
-                className="grid gap-2 py-5 sm:grid-cols-12 sm:items-baseline"
-              >
-                <h3 className="font-display text-lg font-bold sm:col-span-4">
-                  {event.name}
-                </h3>
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:col-span-2">
-                  {event.when}
-                </p>
-                <p className="text-sm text-muted-foreground sm:col-span-6">
-                  {event.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Accordion
+            type="multiple"
+            className="mt-12 divide-y divide-border border-y border-border"
+          >
+            {EVENTS.map((event) =>
+              event.gallery ? (
+                <AccordionItem
+                  key={event.name}
+                  value={event.name}
+                  className="border-b-0"
+                >
+                  <AccordionTrigger className="gap-4 py-5 text-base font-normal hover:no-underline">
+                    <span className="grid flex-1 gap-2 sm:grid-cols-12 sm:items-baseline">
+                      <span className="font-display text-lg font-bold sm:col-span-4">
+                        {event.name}
+                      </span>
+                      <span className="text-xs font-semibold uppercase tracking-widest text-primary sm:col-span-2">
+                        {event.when}
+                      </span>
+                      <span className="text-sm font-normal text-muted-foreground sm:col-span-6">
+                        {event.desc}
+                      </span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6">
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                      {event.gallery.length > 0
+                        ? event.gallery.map((photo) => (
+                            <img
+                              key={photo.src}
+                              src={photo.src}
+                              alt={photo.alt}
+                              loading="lazy"
+                              className="aspect-[4/3] w-full rounded-lg object-cover"
+                            />
+                          ))
+                        : Array.from({ length: 3 }).map((_, i) => (
+                            <div key={i} className="photo-slot aspect-[4/3]">
+                              Photo
+                            </div>
+                          ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ) : (
+                <div
+                  key={event.name}
+                  className="grid gap-2 py-5 sm:grid-cols-12 sm:items-baseline sm:pr-8"
+                >
+                  <h3 className="font-display text-lg font-bold sm:col-span-4">
+                    {event.name}
+                  </h3>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary sm:col-span-2">
+                    {event.when}
+                  </p>
+                  <p className="text-sm text-muted-foreground sm:col-span-6">
+                    {event.desc}
+                  </p>
+                </div>
+              ),
+            )}
+          </Accordion>
         </div>
       </section>
 
@@ -222,9 +315,32 @@ function Index() {
           </h2>
           <div className="sm:text-right">
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Follow us on Instagram @gwinnettaasa or just show up to an
-              event. Questions or want to sponsor us? Email
-              gwinnettaasa@gmail.com.
+              Join our{" "}
+              <a
+                href={DISCORD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                Discord
+              </a>
+              , follow us on Instagram{" "}
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                {INSTAGRAM_HANDLE}
+              </a>
+              , or just show up to an event. Questions or want to sponsor us?{" "}
+              <a
+                href={`mailto:${EMAIL}`}
+                className="font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                Email us
+              </a>
+              .
             </p>
             <Link
               to="/leadership"
