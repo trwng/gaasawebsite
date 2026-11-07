@@ -42,8 +42,9 @@ const BONUS_POINTS = [
 // ---- Standings. A school's total is the sum of its members' points. ----
 // Points so far: Summer Picnic (+25), Foodie Friday (+10), Game Tournament (+15),
 // and Instagram reposts (+2 each). A member's number is their combined total.
+// Names are first name + last initial only, to protect people's privacy.
 // To add points: add a member under their school, or raise their number, e.g.:
-//   { name: "Jane Doe", points: 25 }
+//   { name: "Jane D.", points: 25 }
 type Member = { name: string; points: number };
 type School = { school: string; fullName?: string; members: Member[] };
 
@@ -51,33 +52,33 @@ const STANDINGS: School[] = [
   {
     school: "Archer",
     members: [
-      { name: "Aimen Chaudhry", points: 10 },
-      { name: "Asifa Chaudhry", points: 10 },
-      { name: "Khizra Chaudhry", points: 10 },
-      { name: "Nouchee Chang", points: 15 },
+      { name: "Aimen C.", points: 10 },
+      { name: "Asifa C.", points: 10 },
+      { name: "Khizra C.", points: 10 },
+      { name: "Nouchee C.", points: 15 },
     ],
   },
   { school: "Berkmar", members: [] },
   {
     school: "Brookwood",
     members: [
-      { name: "Minh Nguyễn", points: 25 },
-      { name: "Jason Nguyen", points: 10 },
+      { name: "Minh N.", points: 25 },
+      { name: "Jason N.", points: 10 },
     ],
   },
   {
     school: "Central Gwinnett",
     members: [
-      { name: "Suhan Osman", points: 25 },
-      { name: "Ben Phan", points: 25 },
-      { name: "Abby Khamphiphone", points: 10 },
+      { name: "Suhan O.", points: 25 },
+      { name: "Ben P.", points: 25 },
+      { name: "Abby K.", points: 10 },
     ],
   },
   {
     school: "Collins Hill",
     members: [
-      { name: "Mikael Gastador", points: 25 },
-      { name: "Kayson Kim", points: 10 },
+      { name: "Mikael G.", points: 25 },
+      { name: "Kayson K.", points: 10 },
     ],
   },
   {
@@ -91,7 +92,7 @@ const STANDINGS: School[] = [
   {
     school: "Duluth",
     members: [
-      { name: "Kaden Park", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Kaden P.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
     ],
   },
   { school: "Grayson", members: [] },
@@ -99,32 +100,32 @@ const STANDINGS: School[] = [
     school: "GSMST",
     fullName: "Gwinnett School of Mathematics, Science, and Technology",
     members: [
-      { name: "Vina Vo", points: 25 },
-      { name: "Joe Huynh", points: 25 },
-      { name: "Sahithya Sundaresasubramanian", points: 15 },
-      { name: "Lauren Hwahng", points: 15 },
-      { name: "Ruud Montose", points: 15 },
-      { name: "Mahdi Mugdho", points: 15 },
-      { name: "Ashley H", points: 15 },
-      { name: "Devan Joseph", points: 15 },
-      { name: "Jayden Hwang", points: 15 },
-      { name: "Shambhavi Kapoor", points: 15 },
+      { name: "Vina V.", points: 25 },
+      { name: "Joe H.", points: 25 },
+      { name: "Sahithya S.", points: 15 },
+      { name: "Lauren H.", points: 15 },
+      { name: "Ruud M.", points: 15 },
+      { name: "Mahdi M.", points: 15 },
+      { name: "Ashley H.", points: 15 },
+      { name: "Devan J.", points: 15 },
+      { name: "Jayden H.", points: 15 },
+      { name: "Shambhavi K.", points: 15 },
     ],
   },
   {
     school: "Lanier",
     members: [
-      { name: "Ethan Setiadi", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
-      { name: "Isaac Nguyen", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
-      { name: "Jaydon Tran", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
-      { name: "Deborah An", points: 25 },
-      { name: "Caleb Mani", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
-      { name: "Rebecca Sadler", points: 10 },
-      { name: "Chloe Kim", points: 10 },
-      { name: "Saira Karim", points: 10 },
-      { name: "Yumna Ayaz", points: 10 },
-      { name: "Evelyn An", points: 10 },
-      { name: "Justin Pongpairoj", points: 15 },
+      { name: "Ethan S.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Isaac N.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Jaydon T.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Deborah A.", points: 25 },
+      { name: "Caleb M.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Rebecca S.", points: 10 },
+      { name: "Chloe K.", points: 10 },
+      { name: "Saira K.", points: 10 },
+      { name: "Yumna A.", points: 10 },
+      { name: "Evelyn A.", points: 10 },
+      { name: "Justin P.", points: 15 },
     ],
   },
   { school: "Meadowcreek", members: [] },
@@ -132,66 +133,66 @@ const STANDINGS: School[] = [
   {
     school: "Mountain View",
     members: [
-      { name: "Sylvia Her", points: 25 },
+      { name: "Sylvia H.", points: 25 },
       { name: "Sohyeon", points: 25 },
-      { name: "Noel Jeong", points: 25 },
-      { name: "Vyvy Nguyen", points: 29 }, // Summer Picnic 25 + 4 for Instagram reposts
-      { name: "Anh Tran", points: 25 },
-      { name: "Gabriella Cruz", points: 25 },
-      { name: "Liem Tran", points: 25 },
-      { name: "Sunny Mai", points: 25 },
+      { name: "Noel J.", points: 25 },
+      { name: "Vyvy N.", points: 29 }, // Summer Picnic 25 + 4 for Instagram reposts
+      { name: "Anh T.", points: 25 },
+      { name: "Gabriella C.", points: 25 },
+      { name: "Liem T.", points: 25 },
+      { name: "Sunny M.", points: 25 },
     ],
   },
   {
     school: "Norcross",
     members: [
-      { name: "Keith Hoe", points: 25 },
-      { name: "Cindy Nguyen", points: 25 },
-      { name: "Taylor Yuan", points: 10 },
+      { name: "Keith H.", points: 25 },
+      { name: "Cindy N.", points: 25 },
+      { name: "Taylor Y.", points: 10 },
     ],
   },
   {
     school: "North Gwinnett",
     members: [
-      { name: "McKinley Parham", points: 25 },
+      { name: "McKinley P.", points: 25 },
       { name: "Aiden", points: 15 },
     ],
   },
   {
     school: "Parkview",
     members: [
-      { name: "Kemontae Womack", points: 10 },
-      { name: "Kaden Nguyen", points: 15 },
+      { name: "Kemontae W.", points: 10 },
+      { name: "Kaden N.", points: 15 },
     ],
   },
   {
     school: "Paul Duke",
     fullName: "Paul Duke STEM High School",
-    members: [{ name: "Mia Santiago", points: 25 }],
+    members: [{ name: "Mia S.", points: 25 }],
   },
   {
     school: "Peachtree Ridge",
     members: [
-      { name: "Jayden Phan", points: 25 },
-      { name: "Joshua Zhang", points: 25 },
-      { name: "Katherine Yang", points: 25 },
-      { name: "Ryan LeHoang", points: 25 },
-      { name: "Ruby Shin", points: 25 },
-      { name: "Paul Kim", points: 25 },
-      { name: "Carden Truong", points: 25 },
-      { name: "Thai Pham", points: 25 },
-      { name: "Claire Yu", points: 10 },
-      { name: "Vincent Nguyen", points: 10 },
+      { name: "Jayden P.", points: 25 },
+      { name: "Joshua Z.", points: 25 },
+      { name: "Katherine Y.", points: 25 },
+      { name: "Ryan L.", points: 25 },
+      { name: "Ruby S.", points: 25 },
+      { name: "Paul K.", points: 25 },
+      { name: "Carden T.", points: 25 },
+      { name: "Thai P.", points: 25 },
+      { name: "Claire Y.", points: 10 },
+      { name: "Vincent N.", points: 10 },
       { name: "Angie", points: 15 },
     ],
   },
   {
     school: "Seckinger",
     members: [
-      { name: "Seung Jun Lee", points: 25 },
-      { name: "Cara Bui", points: 10 },
-      { name: "Daniel Cosereanu", points: 15 },
-      { name: "Jaewon Lee", points: 15 },
+      { name: "Seung Jun L.", points: 25 },
+      { name: "Cara B.", points: 10 },
+      { name: "Daniel C.", points: 15 },
+      { name: "Jaewon L.", points: 15 },
     ],
   },
   { school: "South Gwinnett", members: [] },
