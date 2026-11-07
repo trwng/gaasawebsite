@@ -7,6 +7,6 @@ export const ANNOUNCEMENTS: Announcement[] = [
   {
     date: "Nov 6, 2026",
     title: "Standings are up",
-    body: "Summer Picnic points and Instagram repost points are now on the Points page.",
+    body: "Points from Summer Picnic, Foodie Friday, and the Game Tournament are now on the Points page.",
   },
 ];
