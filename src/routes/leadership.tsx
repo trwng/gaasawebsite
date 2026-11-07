@@ -56,8 +56,8 @@ function Leadership() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 xl:grid-cols-4">
           {BOARD.map((member, i) => (
             <div key={`${member.role}-${i}`}>
               {member.photo ? (
@@ -84,7 +84,7 @@ function Leadership() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
           <h2 className="font-display text-2xl font-bold tracking-tight">
             Want to lead?
           </h2>

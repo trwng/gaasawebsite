@@ -239,7 +239,7 @@ function Points() {
       </section>
 
       {/* How points are earned + what they're worth */}
-      <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 pt-10 sm:px-6 sm:pt-14">
         <div className="border border-border bg-card">
           <div className="border-b border-border px-5 py-4 sm:px-7">
             <h2 className="font-display text-lg font-semibold tracking-tight">
@@ -299,7 +299,7 @@ function Points() {
       </section>
 
       {/* Standings */}
-      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <h2 className="font-display text-2xl font-bold tracking-tight">
           School standings
         </h2>

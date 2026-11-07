@@ -95,7 +95,7 @@ function About() {
       </section>
 
       {/* Story */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <img
@@ -135,7 +135,7 @@ function About() {
 
       {/* Values — plain list with rules */}
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <h2 className="font-display text-2xl font-bold tracking-tight">
             How we run things
           </h2>
@@ -158,7 +158,7 @@ function About() {
       </section>
 
       {/* Photo band */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
           {BAND.map((photo) => (
             <div
@@ -178,7 +178,7 @@ function About() {
 
       {/* Keep in touch */}
       <section id="keep-in-touch" className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <h2 className="font-display text-3xl font-bold tracking-tight">
             Keep in touch!
           </h2>

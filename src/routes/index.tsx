@@ -119,7 +119,7 @@ function Index() {
           <img
             src={PHOTOS.banquetHall.src}
             alt={PHOTOS.banquetHall.alt}
-            className="aspect-[21/9] w-full rounded-lg object-cover object-center"
+            className="aspect-[4/3] w-full rounded-lg object-cover object-center sm:aspect-[21/9]"
             width={1754}
             height={978}
           />
@@ -130,7 +130,7 @@ function Index() {
       </section>
 
       {/* Announcements. Edit the list in src/lib/announcements.ts */}
-      <section className="mx-auto max-w-6xl px-4 pt-20 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6 sm:pt-20">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
           Announcements
         </p>
@@ -164,7 +164,7 @@ function Index() {
       </section>
 
       {/* Mission — offset two-column */}
-      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
@@ -206,7 +206,7 @@ function Index() {
 
       {/* Events — simple list, not cards */}
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
             02 / Events
           </p>
@@ -215,7 +215,7 @@ function Index() {
           </h2>
           <Accordion
             type="multiple"
-            className="mt-12 divide-y divide-border border-y border-border"
+            className="mt-8 divide-y divide-border border-y border-border sm:mt-12"
           >
             {EVENTS.map((event) =>
               event.gallery ? (
@@ -279,20 +279,20 @@ function Index() {
       </section>
 
       {/* Gallery */}
-      <section className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
           03 / Gallery
         </p>
         <h2 className="mt-4 font-display text-3xl font-bold tracking-tight">
           Photos from past events
         </h2>
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 md:grid-cols-4">
           {GALLERY.map((photo, i) => (
             <div
               key={photo.src}
               className={
                 i === 0
-                  ? "relative col-span-2 row-span-2 min-h-0 overflow-hidden rounded-lg bg-muted"
+                  ? "relative col-span-2 row-span-1 aspect-[4/3] min-h-0 overflow-hidden rounded-lg bg-muted md:row-span-2 md:aspect-auto"
                   : "relative aspect-[4/3] overflow-hidden rounded-lg bg-muted"
               }
             >
@@ -309,7 +309,7 @@ function Index() {
 
       {/* Closing line */}
       <section className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-20 sm:flex-row sm:items-end sm:justify-between sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-14 sm:flex-row sm:py-20 sm:items-end sm:justify-between sm:px-6">
           <h2 className="max-w-md font-display text-3xl font-bold leading-tight tracking-tight">
             Anyone can join.
           </h2>

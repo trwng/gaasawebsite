@@ -34,7 +34,7 @@ function SiteNav() {
             height={36}
             className="h-9 w-9 rounded-lg"
           />
-          <span className="font-display text-lg font-bold tracking-tight">
+          <span className="hidden font-display text-lg font-bold tracking-tight sm:inline">
             Gwinnett <span className="text-primary">AASA</span>
           </span>
         </Link>
@@ -44,7 +44,7 @@ function SiteNav() {
               key={link.to}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
-              className="rounded-md px-3 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+              className="whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-semibold text-muted-foreground transition-colors hover:text-foreground sm:px-3 sm:text-sm"
               activeProps={{ className: "bg-primary/10 text-primary" }}
             >
               {link.label}
