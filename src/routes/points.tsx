@@ -30,6 +30,7 @@ const EVENT_POINTS = [
   { label: "Game Tournaments", points: 15 },
   { label: "Foodie Friday", points: 10 },
   { label: "Advocacy Day", points: 30 },
+  { label: "Winter Banquet", points: 30 },
   { label: "GAASA Banquet", points: 35 },
   { label: "Volunteering", points: 10 },
 ];
@@ -37,6 +38,7 @@ const EVENT_POINTS = [
 const BONUS_POINTS = [
   { label: "Repost a GAASA Instagram post", points: 2 },
   { label: "Win a Game Tournament", points: 10 },
+  { label: "Perform at the GAASA Banquet", points: 15 },
 ];
 
 // ---- Standings. A school's total is the sum of its members' points. ----
