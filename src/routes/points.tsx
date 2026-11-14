@@ -76,6 +76,7 @@ const STANDINGS: School[] = [
       { name: "Arisha J.", points: 25 },
       { name: "Alisha M.", points: 25 },
       { name: "Sakin M.", points: 25 },
+      { name: "Brea N.", points: 4 }, // Instagram reposts 2x2
     ],
   },
   {
@@ -86,7 +87,7 @@ const STANDINGS: School[] = [
       { name: "Abby K.", points: 10 },
       { name: "Aiden N.", points: 25 },
       { name: "Bee V.", points: 25 },
-      { name: "LuciaThien N.", points: 25 },
+      { name: "LuciaThien N.", points: 58 }, // + Summer Picnic 25 + Instagram reposts 4x2
       { name: "Bella N.", points: 25 },
     ],
   },
@@ -108,6 +109,7 @@ const STANDINGS: School[] = [
       { name: "Enzo", points: 15 },
       { name: "Taylin", points: 15 },
       { name: "Jeremiah", points: 15 },
+      { name: "Olivia H.", points: 33 }, // Summer Picnic 25 + Instagram reposts 4x2
     ],
   },
   {
@@ -124,7 +126,7 @@ const STANDINGS: School[] = [
     members: [
       { name: "Vina V.", points: 25 },
       { name: "Joe H.", points: 25 },
-      { name: "Sahithya S.", points: 15 },
+      { name: "Sahithya S.", points: 17 }, // + Instagram repost 2
       { name: "Lauren H.", points: 15 },
       { name: "Ruud M.", points: 15 },
       { name: "Mahdi M.", points: 15 },
@@ -133,6 +135,7 @@ const STANDINGS: School[] = [
       { name: "Jayden H.", points: 15 },
       { name: "Shambhavi K.", points: 15 },
       { name: "Leo S.", points: 25 },
+      { name: "Lauren W.", points: 2 }, // Instagram repost 2
     ],
   },
   {
@@ -140,7 +143,7 @@ const STANDINGS: School[] = [
     members: [
       { name: "Ethan S.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
       { name: "Isaac N.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
-      { name: "Jaydon T.", points: 60 }, // Summer Picnic 25 + Foodie Friday 10; + Field Day 25
+      { name: "Jaydon T.", points: 62 }, // Summer Picnic 25 + Foodie Friday 10; + Field Day 25; + Instagram repost 2
       { name: "Deborah A.", points: 25 },
       { name: "Caleb M.", points: 60 }, // Summer Picnic 25 + Foodie Friday 10; + Field Day 25
       { name: "Rebecca S.", points: 10 },
@@ -156,13 +159,13 @@ const STANDINGS: School[] = [
   {
     school: "Mountain View",
     members: [
-      { name: "Sylvia H.", points: 25 },
+      { name: "Sylvia H.", points: 27 }, // + Instagram repost 2
       { name: "Sohyeon", points: 25 },
-      { name: "Noel J.", points: 50 }, // + Field Day 25
-      { name: "Vyvy N.", points: 54 }, // Summer Picnic 25 + 4 for Instagram reposts; + Field Day 25
+      { name: "Noel J.", points: 54 }, // + Field Day 25; + Instagram reposts 2x2
+      { name: "Vyvy N.", points: 56 }, // Summer Picnic 25 + 4 for Instagram reposts; + Field Day 25; + Instagram repost 2
       { name: "Anh T.", points: 50 }, // + Field Day 25
       { name: "Gabriella C.", points: 50 }, // + Field Day 25
-      { name: "Liem T.", points: 50 }, // + Field Day 25
+      { name: "Liem T.", points: 54 }, // + Field Day 25; + Instagram reposts 2x2
       { name: "Sunny M.", points: 25 },
       { name: "Bao N.", points: 25 },
       { name: "Daliana A.", points: 25 },
@@ -181,6 +184,7 @@ const STANDINGS: School[] = [
       { name: "Taylor Y.", points: 35 }, // + Field Day 25
       { name: "Audrey P.", points: 25 },
       { name: "James W.", points: 25 },
+      { name: "Vina N.", points: 10 }, // Foodie Friday 10
     ],
   },
   {
@@ -217,7 +221,7 @@ const STANDINGS: School[] = [
   {
     school: "Peachtree Ridge",
     members: [
-      { name: "Jayden P.", points: 25 },
+      { name: "Jayden P.", points: 27 }, // + Instagram repost 2
       { name: "Joshua Z.", points: 25 },
       { name: "Katherine Y.", points: 25 },
       { name: "Ryan L.", points: 25 },
@@ -238,7 +242,7 @@ const STANDINGS: School[] = [
     school: "Seckinger",
     members: [
       { name: "Seung Jun L.", points: 25 },
-      { name: "Cara B.", points: 35 }, // + Field Day 25
+      { name: "Cara B.", points: 66 }, // + Field Day 25; + Summer Picnic 25 + Instagram reposts 3x2
       { name: "Daniel C.", points: 15 },
       { name: "Jaewon L.", points: 15 },
       { name: "Xin G.", points: 25 },
