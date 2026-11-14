@@ -43,7 +43,7 @@ const BONUS_POINTS = [
 
 // ---- Standings. A school's total is the sum of its members' points. ----
 // Points so far: Summer Picnic (+25), Foodie Friday (+10), Game Tournament (+15),
-// and Instagram reposts (+2 each). A member's number is their combined total.
+// Field Day (+25), and Instagram reposts (+2 each). A member's number is their combined total.
 // Names are first name + last initial only, to protect people's privacy.
 // To add points: add a member under their school, or raise their number, e.g.:
 //   { name: "Jane D.", points: 25 }
@@ -65,7 +65,17 @@ const STANDINGS: School[] = [
     school: "Brookwood",
     members: [
       { name: "Minh N.", points: 25 },
-      { name: "Jason N.", points: 10 },
+      { name: "Jason N.", points: 35 }, // + Field Day 25
+      { name: "Hanah M.", points: 25 },
+      { name: "Megan N.", points: 25 },
+      { name: "Paris N.", points: 25 },
+      { name: "Samuel H.", points: 25 },
+      { name: "Sydney H.", points: 25 },
+      { name: "Sophia D.", points: 25 },
+      { name: "Mikayla N.", points: 25 },
+      { name: "Arisha J.", points: 25 },
+      { name: "Alisha M.", points: 25 },
+      { name: "Sakin M.", points: 25 },
     ],
   },
   {
@@ -74,13 +84,22 @@ const STANDINGS: School[] = [
       { name: "Sui O.", points: 25 },
       { name: "Ben P.", points: 25 },
       { name: "Abby K.", points: 10 },
+      { name: "Aiden N.", points: 25 },
+      { name: "Bee V.", points: 25 },
+      { name: "LuciaThien N.", points: 25 },
+      { name: "Bella N.", points: 25 },
     ],
   },
   {
     school: "Collins Hill",
     members: [
       { name: "Mikael G.", points: 25 },
-      { name: "Kayson K.", points: 10 },
+      { name: "Kayson K.", points: 35 }, // + Field Day 25
+      { name: "Allysa K.", points: 25 },
+      { name: "Emran H.", points: 25 },
+      { name: "Kevin C.", points: 25 },
+      { name: "Mimi L.", points: 25 },
+      { name: "Sabine T.", points: 25 },
     ],
   },
   {
@@ -94,7 +113,8 @@ const STANDINGS: School[] = [
   {
     school: "Duluth",
     members: [
-      { name: "Kaden P.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Kaden P.", points: 60 }, // Summer Picnic 25 + Foodie Friday 10; + Field Day 25
+      { name: "Nghi L.", points: 25 },
     ],
   },
   { school: "Grayson", members: [] },
@@ -112,6 +132,7 @@ const STANDINGS: School[] = [
       { name: "Devan J.", points: 15 },
       { name: "Jayden H.", points: 15 },
       { name: "Shambhavi K.", points: 15 },
+      { name: "Leo S.", points: 25 },
     ],
   },
   {
@@ -119,9 +140,9 @@ const STANDINGS: School[] = [
     members: [
       { name: "Ethan S.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
       { name: "Isaac N.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
-      { name: "Jaydon T.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Jaydon T.", points: 60 }, // Summer Picnic 25 + Foodie Friday 10; + Field Day 25
       { name: "Deborah A.", points: 25 },
-      { name: "Caleb M.", points: 35 }, // Summer Picnic 25 + Foodie Friday 10
+      { name: "Caleb M.", points: 60 }, // Summer Picnic 25 + Foodie Friday 10; + Field Day 25
       { name: "Rebecca S.", points: 10 },
       { name: "Chloe K.", points: 10 },
       { name: "Saira K.", points: 10 },
@@ -137,20 +158,29 @@ const STANDINGS: School[] = [
     members: [
       { name: "Sylvia H.", points: 25 },
       { name: "Sohyeon", points: 25 },
-      { name: "Noel J.", points: 25 },
-      { name: "Vyvy N.", points: 29 }, // Summer Picnic 25 + 4 for Instagram reposts
-      { name: "Anh T.", points: 25 },
-      { name: "Gabriella C.", points: 25 },
-      { name: "Liem T.", points: 25 },
+      { name: "Noel J.", points: 50 }, // + Field Day 25
+      { name: "Vyvy N.", points: 54 }, // Summer Picnic 25 + 4 for Instagram reposts; + Field Day 25
+      { name: "Anh T.", points: 50 }, // + Field Day 25
+      { name: "Gabriella C.", points: 50 }, // + Field Day 25
+      { name: "Liem T.", points: 50 }, // + Field Day 25
       { name: "Sunny M.", points: 25 },
+      { name: "Bao N.", points: 25 },
+      { name: "Daliana A.", points: 25 },
+      { name: "Kacey V.", points: 25 },
+      { name: "Kiet T.", points: 25 },
+      { name: "Olivia S.", points: 25 },
+      { name: "Zoey F.", points: 25 },
+      { name: "Alex N.", points: 25 },
     ],
   },
   {
     school: "Norcross",
     members: [
       { name: "Keith H.", points: 25 },
-      { name: "Cindy N.", points: 25 },
-      { name: "Taylor Y.", points: 10 },
+      { name: "Cindy N.", points: 50 }, // + Field Day 25
+      { name: "Taylor Y.", points: 35 }, // + Field Day 25
+      { name: "Audrey P.", points: 25 },
+      { name: "James W.", points: 25 },
     ],
   },
   {
@@ -158,6 +188,9 @@ const STANDINGS: School[] = [
     members: [
       { name: "McKinley P.", points: 25 },
       { name: "Aiden", points: 15 },
+      { name: "Harim K.", points: 25 },
+      { name: "Nathan N.", points: 25 },
+      { name: "Aiden H.", points: 25 },
     ],
   },
   {
@@ -165,12 +198,21 @@ const STANDINGS: School[] = [
     members: [
       { name: "Kemontae W.", points: 10 },
       { name: "Kaden N.", points: 15 },
+      { name: "Alex M.", points: 25 },
+      { name: "Ashley K.", points: 25 },
+      { name: "Christy L.", points: 25 },
+      { name: "Linh L.", points: 25 },
+      { name: "Sophia L.", points: 25 },
+      { name: "Wakel A.", points: 25 },
     ],
   },
   {
     school: "Paul Duke",
     fullName: "Paul Duke STEM High School",
-    members: [{ name: "Mia S.", points: 25 }],
+    members: [
+      { name: "Mia S.", points: 25 },
+      { name: "Ivan Z.", points: 25 },
+    ],
   },
   {
     school: "Peachtree Ridge",
@@ -186,19 +228,39 @@ const STANDINGS: School[] = [
       { name: "Claire Y.", points: 10 },
       { name: "Vincent N.", points: 10 },
       { name: "Angie", points: 15 },
+      { name: "Adan N.", points: 25 },
+      { name: "Chau N.", points: 25 },
+      { name: "Dylan L.", points: 25 },
+      { name: "Tucker K.", points: 25 },
     ],
   },
   {
     school: "Seckinger",
     members: [
       { name: "Seung Jun L.", points: 25 },
-      { name: "Cara B.", points: 10 },
+      { name: "Cara B.", points: 35 }, // + Field Day 25
       { name: "Daniel C.", points: 15 },
       { name: "Jaewon L.", points: 15 },
+      { name: "Xin G.", points: 25 },
     ],
   },
   { school: "South Gwinnett", members: [] },
-  { school: "Buford", members: [] },
+  {
+    school: "Buford",
+    members: [
+      { name: "Emily P.", points: 25 },
+      { name: "Jinho B.", points: 25 },
+      { name: "Jiwoo J.", points: 25 },
+      { name: "Lam T.", points: 25 },
+      { name: "Daniel O.", points: 25 },
+      { name: "Reyna H.", points: 25 },
+      { name: "Joyce D.", points: 25 },
+      { name: "Suin K.", points: 25 },
+      { name: "Sergio V.", points: 25 },
+      { name: "Leah B.", points: 25 },
+      { name: "Teagan L.", points: 25 },
+    ],
+  },
 ];
 
 const total = (s: School) => s.members.reduce((sum, m) => sum + m.points, 0);
